@@ -1,0 +1,53 @@
+<div ng-controller="statsController">
+    <div ui-content-for="title">
+      <span>My Field Stats</span>
+    </div>
+
+    <div ng-show="chartType='line" class="scrollable" ng-style="{'background-color':'white'}">
+        <div>
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series"
+                    chart-click="onClick">
+            </canvas>
+        </div>
+    </div>
+
+    <div ng-show="chartType=='bar'" class="scrollable" ng-style="{'background-color':'white'}">
+        <div>
+            <canvas id="bar" class="chart chart-bar" chart-data="data"
+                    chart-labels="labels" chart-series="series"
+                    chart-click="onClick">
+            </canvas>
+        </div>
+    </div>
+
+    <div ng-show="chartType=='radar'" class="scrollable" ng-style="{'background-color':'white'}">
+        <div>
+            <canvas id="radar" class="chart chart-radar" chart-data="data"
+                    chart-labels="labels" chart-series="series"
+                    chart-click="onClick">
+            </canvas>
+        </div>
+    </div>
+
+    <div class="btn-group justified nav-tabs">
+        <a
+                ng-class="{'active': chartType != 'bar'}"
+                ng-click="setChartType('bar')"
+                class="btn btn-default" href>
+            Bar
+        </a>
+        <a
+                ng-class="{'active': chartType != 'line'}"
+                ng-click="setChartType('line')"
+                class="btn btn-default" href>
+            Line
+        </a>
+        <a
+                ng-class="{'active': chartType != 'radar'}"
+                ng-click="setChartType('radar')"
+                class="btn btn-default" href>
+            Radar
+        </a>
+    </div>
+</div>
